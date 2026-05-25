@@ -17,9 +17,6 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
-const port = process.env.PORT;
-// console.log(port);
-
 app.get("/", (req, res) => {
   res.send(`Backend Server is running on port ${port}`);
 });
@@ -71,6 +68,8 @@ app.delete("/todos", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT || 5000, () => {
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => {
   console.log(`Server is running on port ${port} `);
 });
