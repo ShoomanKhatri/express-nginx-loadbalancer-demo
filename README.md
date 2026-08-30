@@ -26,33 +26,27 @@ Killercoda Docker Playground.
 - `.env` — environment variables
 - `package.json` — dependencies
 
-## Run locally / on Killercoda
+## Run on Killercoda
 
-1. Install dependencies:
+1. Build and run with Docker Compose:
 
 ```bash
-   npm install
+docker compose up --build
 ```
 
-2. Build and run with Docker Compose:
+2. Test the load balancer (in a second terminal):
 
 ```bash
-   docker compose up --build
-```
-
-3. Test the load balancer (in a second terminal):
-
-```bash
-   curl http://localhost:8080
-   curl http://localhost:8080/health
+curl http://localhost:8080
+curl http://localhost:8080/health
 ```
 
 Run the first `curl` a few times — the `hostname` in the response
 will rotate between `backend1`, `backend2`, and `backend3`, showing
 NGINX load balancing across them.
 
-4. Stop everything:
+3. Stop everything:
 
 ```bash
-   docker compose down
+docker compose down
 ```
