@@ -51,8 +51,13 @@ NODE_ENV=development
 3. Build and run with Docker Compose:
 
 ```bash
-docker compose up --build
+docker-compose up --build
 ```
+
+> Note: Killercoda's Docker Playground ships the legacy `docker-compose`
+> (v1) binary, not the newer `docker compose` (v2) plugin. If your
+> environment has v2 instead, use `docker compose up --build` (with a
+> space) rather than a hyphen.
 
 4. Test the load balancer (in a second terminal):
 
@@ -68,5 +73,5 @@ NGINX load balancing across them.
 5. Stop everything:
 
 ```bash
-docker compose down
+docker-compose down
 ```
