@@ -1,4 +1,4 @@
-# express-lb-demo
+# express-nginx-loadbalancer-demo
 
 A simple demo showing how to load balance multiple Express.js backend
 instances using NGINX and Docker Compose. Built for testing in the
@@ -23,18 +23,38 @@ Killercoda Docker Playground.
 - `Dockerfile` — builds the backend image
 - `nginx.conf` — NGINX load balancer config
 - `docker-compose.yml` — spins up 3 backends + 1 load balancer
-- `.env` — environment variables
+- `.env` — environment variables (not committed to Git)
 - `package.json` — dependencies
 
 ## Run on Killercoda
 
-1. Build and run with Docker Compose:
+1. Clone the repo:
+
+```bash
+git clone https://github.com/ShoomanKhatri/express-nginx-loadbalancer-demo.git
+cd express-nginx-loadbalancer-demo
+```
+
+2. Create a `.env` file (not included in the repo):
+
+```bash
+nano .env
+```
+
+Paste:
+
+```env
+PORT=5000
+NODE_ENV=development
+```
+
+3. Build and run with Docker Compose:
 
 ```bash
 docker compose up --build
 ```
 
-2. Test the load balancer (in a second terminal):
+4. Test the load balancer (in a second terminal):
 
 ```bash
 curl http://localhost:8080
@@ -45,7 +65,7 @@ Run the first `curl` a few times — the `hostname` in the response
 will rotate between `backend1`, `backend2`, and `backend3`, showing
 NGINX load balancing across them.
 
-3. Stop everything:
+5. Stop everything:
 
 ```bash
 docker compose down
